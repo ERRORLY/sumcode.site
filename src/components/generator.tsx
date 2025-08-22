@@ -65,7 +65,7 @@ function Generator() {
       setGeneratedCode(code);
       setExplainCode(explanation);
       setGeneratedLanguage(language || "plaintext");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error generating code:", error);
       setGeneratedCode(`// Error generating code. Please check your prompt or try again.
 // Details: ${error.message || "Unknown error"}`);
