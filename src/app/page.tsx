@@ -5,7 +5,7 @@ import {
   Shield,
   Github,
   Star,
-  Twitter,
+  Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,11 +29,11 @@ export default function HomePage() {
               <Button variant="ghost" size="sm" className="hidden sm:flex">
                 <a
                   className="hidden sm:flex"
-                  href="https://x.com/sumcodesite"
+                  href="https://github.com/ERRORLY/sumcode.site"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Twitter className="w-4 h-4 mr-2" />
+                  <Github className="w-4 h-4 mr-2" />
                   Sum Code
                 </a>
               </Button>
