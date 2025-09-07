@@ -10,10 +10,11 @@ export async function POST(request: NextRequest) {
     // 1. Construct a detailed prompt to guide the AI
     const structuredPrompt = `
 You are an expert AI code generator. Your task is to generate code based on a user's request.
-Always respond with a single JSON object that contains three keys: "code", "explanation", and "language".
+Always respond with a single JSON object that contains three keys: "code", "explanation", "language", codePrompt.
 The "code" key should contain the raw code snippet.
 The "explanation" key should provide a clear and concise explanation of the code.
 The "language" key should specify the programming language of the code (e.g., "javascript", "python", "html").
+The "codePrompt" key should provide in true or false wether the prompt is related coding or not.
 
 User's request:
 ${prompt}
@@ -28,10 +29,9 @@ ${prompt}
     // 3. Parse the JSON response and handle potential errors
     try {
       // Axios will often auto-parse JSON, but it's good practice to be explicit
-      const { code, explanation, language } = aiResponse.data;
-
+      const { code, explanation, language, codePrompt } = aiResponse.data;
       return NextResponse.json(
-        { code, explanation, language },
+        { code, explanation, language, codePrompt },
         { status: 200 },
       );
     } catch (parseError) {
